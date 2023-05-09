@@ -94,6 +94,10 @@ let car;
 // Load 3D models 
 function loadModel() {
   const loader = new GLTFLoader();
+  const dracoLoader = new DRACOLoader();
+
+  dracoLoader.setDecoderPath("node_modules/three/examples/jsm/libs/draco/");
+  loader.setDRACOLoader(dracoLoader);
 
   loader.load("assets/japanese_restaurant.glb", (model1) => {
     const shop = model1.scene;
