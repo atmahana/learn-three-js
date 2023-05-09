@@ -4,6 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import * as dat from "dat.gui";
 
 const scene = new THREE.Scene();
@@ -28,10 +29,13 @@ element.appendChild(renderer.domElement);
 
 // Camera control
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
 camera.position.set(-5, 2.5, 6);
+controls.enableDamping = true;
 controls.autoRotate = true;
 controls.autoRotateSpeed = 0.5;
+controls.minDistance = 1;
+controls.maxDistance = 20;
+controls.maxPolarAngle = Math.PI / 2.1;
 controls.update();
 
 // skybox
@@ -118,8 +122,6 @@ function loadModel() {
           }
         });
         scene.add(model2.scene);
-        console.log(car);
-        console.log(car.getObjectByName("bumper_rear2_CAR_PAINT_0"));
       },
       undefined,
       (err) => {
