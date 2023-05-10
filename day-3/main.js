@@ -37,7 +37,7 @@ element.appendChild(renderer.domElement);
 
 // Camera control
 const controls = new OrbitControls(camera, renderer.domElement);
-camera.position.set(-5, 2.5, 6);
+camera.position.set(7, 2.5, 6);
 controls.enableDamping = true;
 controls.autoRotate = true;
 controls.autoRotateSpeed = 0.5;
