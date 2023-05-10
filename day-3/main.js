@@ -42,7 +42,7 @@ controls.update();
 const skyGeo = new THREE.SphereGeometry( 500, 60, 40 );
 // invert the geometry on the x-axis so that all of the faces point inward
 skyGeo.scale( - 1, 1, 1 );
-const skyTexture = new THREE.TextureLoader().load( 'public/sky.jpg' );
+const skyTexture = new THREE.TextureLoader().load( '/sky.jpg' );
 skyTexture.colorSpace = THREE.SRGBColorSpace;
 const skyMat = new THREE.MeshBasicMaterial( { map: skyTexture, color: 0x17203f} );
 const sky = new THREE.Mesh( skyGeo, skyMat );
@@ -70,10 +70,10 @@ const lightGroup = new THREE.Group();
 lightGroup.add(dl, hl, signLight);
 
 // ground base texture
-const map = new THREE.TextureLoader().load("public/asphalt.jpg");
+const map = new THREE.TextureLoader().load("/asphalt.jpg");
 
 // ground bump texture
-const bmap = new THREE.TextureLoader().load("public/asphalt_bump.jpg");
+const bmap = new THREE.TextureLoader().load("/asphalt_bump.jpg");
 
 // ground mesh
 const groundGeo = new THREE.BoxGeometry(25, 0.2, 25);
@@ -99,7 +99,7 @@ function loadModel() {
   dracoLoader.setDecoderPath("node_modules/three/examples/jsm/libs/draco/");
   loader.setDRACOLoader(dracoLoader);
 
-  loader.load("public/japanese_restaurant.glb", (model1) => {
+  loader.load("/japanese_restaurant.glb", (model1) => {
     const shop = model1.scene;
     shop.scale.set(0.5, 0.5, 0.5);
     shop.position.set(0, 0.15, -1)
@@ -116,7 +116,7 @@ function loadModel() {
       }
     );
     loader.load(
-      "public/porsche.glb",
+      "/porsche.glb",
       (model2) => {
         car = model2.scene;
         car.position.set(0, 0.1, 3.5);
