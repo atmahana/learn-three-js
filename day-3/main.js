@@ -13,7 +13,6 @@ let bar = new ldBar(".loadingBar", {
 });
 
 const loadingContainer = document.querySelector(".wrapper");
-console.log(loadingContainer);
 
 const scene = new THREE.Scene();
 scene.fog = new THREE.FogExp2(0xcccccc, 0);
